@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import api from '../../utils/axiosInstance';
 import { toast } from 'react-toastify';
 import useAuth from '../../customHooks/useAuth';
+import Loader from '../loader/Loader';
 
 const Login = () => {
     const { login } = useAuth()
@@ -67,9 +68,7 @@ const Login = () => {
                     </div>
 
                     {loading ? (
-                        <div className="loader-container">
-                            <div className="loader"></div>
-                        </div>
+                        <Loader />
                     ) : (
                         <div className="input-box button">
                             <input type="submit" value="Login Now" />

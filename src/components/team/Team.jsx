@@ -1,5 +1,5 @@
-import Back from "../common/back/Back"
 import TeamCard from "./TeamCard"
+import Loader from "../loader/Loader"
 import "./team.css"
 import "../about/about.css"
 import { useEffect, useState } from "react"
@@ -29,21 +29,19 @@ const Team = () => {
     fetchData();
   }, [])
 
-  if (loading) {
-    return <div>Loading...</div>
-  }
-
   if (error) {
     return <div>No Data Found.</div>
   }
 
   return (
     <>
-      <Back title='Team' />
       <section className='team padding'>
+        {
+          loading && <Loader />
+        }
         <div className='container grid'>
           {
-            team.map((t) => <TeamCard team={t} key={t.id} />)
+            team?.map((t) => <TeamCard team={t} key={t.id} />)
           }
         </div>
       </section>

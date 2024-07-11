@@ -4,6 +4,7 @@ import "./auth.css"
 import { toast } from 'react-toastify';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import Loader from '../loader/Loader';
 
 const Register = () => {
     const [loading, setLoading] = useState(false);
@@ -110,9 +111,7 @@ const Register = () => {
                         <input type="file" onChange={handleFileChange} name="image" />
                     </div>
                     {loading ? (
-                        <div className="loader-container">
-                            <div className="loader"></div>
-                        </div>
+                        <Loader />
                     ) : (
                         <div className="input-box button">
                             <input type="submit" value="Register Now" />

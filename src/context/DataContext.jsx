@@ -8,6 +8,7 @@ export const DataProvider = ({ children }) => {
     const [courses, setCourses] = useState([]);
     const [categories, setCategories] = useState([]);
     const [comments, setcomments] = useState([]);
+    const [teachers, setTeachers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
@@ -15,15 +16,17 @@ export const DataProvider = ({ children }) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const [coursesResponse, categoriesResponse, commentsResponse] = await Promise.all([
+                const [coursesResponse, categoriesResponse, commentsResponse, teachersResponse] = await Promise.all([
                     api.get('courses/'),
                     api.get('categories/'),
-                    api.get('comments/')
+                    api.get('comments/'),
+                    api.get('teachers/')
                 ]);
 
                 setCourses(coursesResponse.data);
                 setCategories(categoriesResponse.data);
                 setcomments(commentsResponse.data);
+                setTeachers(teachersResponse.data);
             } catch (error) {
                 setError(error);
             } finally {
@@ -34,7 +37,7 @@ export const DataProvider = ({ children }) => {
         fetchData();
     }, []);
 
-    const value = { courses, categories, comments, loading, error };
+    const value = { courses, categories, comments, teachers, loading, error, setCourses };
 
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

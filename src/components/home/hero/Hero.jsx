@@ -7,16 +7,8 @@ const Hero = () => {
       <section className='hero'>
         <div className='container'>
           <div className='row'>
-            <Heading subtitle='WELCOME TO ACADEMIA' title='Best Online Education Expertise' />
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-            <div className='button'>
-              <button className='primary-btn'>
-                GET STARTED NOW <i className='fa fa-long-arrow-alt-right'></i>
-              </button>
-              {/* <button>
-                VIEW COURSE <i className='fa fa-long-arrow-alt-right'></i>
-              </button> */}
-            </div>
+            <Heading subtitle='welcom to  brightlearn' title='Learn Anytime, Anywhere' />
+            <p>Flexible, high-quality education tailored to your needs, empowering you to learn and succeed anytime, anywhere</p>
           </div>
         </div>
       </section>

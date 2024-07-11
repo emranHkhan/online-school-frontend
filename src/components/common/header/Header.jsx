@@ -58,6 +58,13 @@ const Header = () => {
               )
             }
             {
+              user?.user_role === 'student' && (
+                <li>
+                  <Link to={'my-courses'}>My Courses</Link>
+                </li>
+              )
+            }
+            {
               user && (<li>
                 <span onClick={handleLogOut}>Log Out</span>
               </li>)

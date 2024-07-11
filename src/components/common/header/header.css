@@ -1,12 +1,16 @@
 /*--------head------------*/
 .head {
   padding: 20px 0;
-  color: #0089BA;
 }
 
 .logo h1 {
   font-size: 35px;
+  color: #0089BA;
   font-weight: 900;
+}
+
+.logo span {
+  color: #0089BA;
 }
 
 .head .icon {
@@ -18,6 +22,7 @@
 header {
   background-color: #0089BA;
   margin: 0 30px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 header .nav {

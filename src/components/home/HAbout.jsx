@@ -17,7 +17,7 @@ const HAbout = () => {
     <>
       <section className='homeAbout'>
         <div className='container'>
-          <Heading subtitle='our courses' title='explore our popular online courses' />
+          <Heading subtitle='our courses' title='explore popular courses' />
 
           <Link to={'/courses'} className="view-all-link">
             <span>view all</span>

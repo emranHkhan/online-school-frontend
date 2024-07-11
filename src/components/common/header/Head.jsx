@@ -7,7 +7,7 @@ const Head = () => {
         <div className='container flexSB'>
           <Link to={"/"} >
             <div className='logo'>
-              <h1>ACADEMIA</h1>
+              <h1>BRIGHTLEARN</h1>
               <span>ONLINE EDUCATION & LEARNING</span>
             </div>
           </Link>

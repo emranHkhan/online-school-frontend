@@ -177,14 +177,17 @@ p {
   background-color: #fff;
 }
 
-.view-all-link {
+.view-all-link,
+.view-all-link>span {
   color: #0089BA;
   font-size: 1.2rem;
   text-transform: uppercase;
   display: flex;
   align-items: center;
   gap: 5px;
+  position: relative;
 }
+
 
 @media screen and (max-width: 768px) {
 

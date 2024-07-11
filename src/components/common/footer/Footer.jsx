@@ -1,4 +1,3 @@
-import { blog } from "../../../dummydata"
 import "./footer.css"
 
 const Footer = () => {
@@ -7,8 +6,8 @@ const Footer = () => {
       <section className='newletter'>
         <div className='container flexSB'>
           <div className='left row'>
-            <h1>Newsletter - Stay tune and get the latest update</h1>
-            <span>Far far away, behind the word mountains</span>
+            <h1>Stay tuned and get the latest update</h1>
+            <span>Join our community and never miss out on new courses and opportunities</span>
           </div>
           <div className='right row'>
             <input type='text' placeholder='Enter email address' />
@@ -21,7 +20,7 @@ const Footer = () => {
           <div className='box logo'>
             <h1>ACADEMIA</h1>
             <span>ONLINE EDUCATION & LEARNING</span>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <p>Flexible, high-quality education tailored to your needs, empowering you to learn and succeed anytime, anywhere</p>
 
             <i className='fab fa-facebook-f icon'></i>
             <i className='fab fa-twitter icon'></i>

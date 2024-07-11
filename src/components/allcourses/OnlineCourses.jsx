@@ -1,5 +1,4 @@
 import "./courses.css"
-import { online } from "../../dummydata"
 import Heading from "../common/heading/Heading"
 import useData from "../../customHooks/useData";
 import image from "../../../public/images/courses/online/o1.png"
@@ -11,7 +10,7 @@ const OnlineCourses = () => {
     <>
       <section className='online'>
         <div className='container'>
-          <Heading subtitle='COURSES' title='Browse Our Online Courses' />
+          <Heading subtitle='COURSES' title='browse by department' />
           <div className='content grid3'>
             {categories.map((cat) => (
               <div className='box' key={cat.id}>
