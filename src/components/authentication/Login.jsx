@@ -7,6 +7,7 @@ import useAuth from '../../customHooks/useAuth';
 const Login = () => {
     const { login } = useAuth()
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
 
     const [formData, setFormData] = useState({
         username: '',
@@ -23,6 +24,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setLoading(true);
         try {
             const response = await api.post('login/', formData);
             login(response.data)
@@ -31,6 +33,8 @@ const Login = () => {
         } catch (error) {
             toast.error('Login failed. Please check your credentials.');
             console.error('Error:', error);
+        } finally {
+            setLoading(false)
         }
     };
 
@@ -62,9 +66,15 @@ const Login = () => {
                         />
                     </div>
 
-                    <div className="input-box button">
-                        <input type="submit" value="Login Now" />
-                    </div>
+                    {loading ? (
+                        <div className="loader-container">
+                            <div className="loader"></div>
+                        </div>
+                    ) : (
+                        <div className="input-box button">
+                            <input type="submit" value="Login Now" />
+                        </div>
+                    )}
 
                     <div className="text">
                         <h3>Don&apos;t have an account? <Link to="/register">Register Now</Link></h3>
