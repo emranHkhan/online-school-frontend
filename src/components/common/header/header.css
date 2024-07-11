@@ -1,0 +1,110 @@
+/*--------head------------*/
+.head {
+  padding: 20px 0;
+  color: #0089BA;
+}
+
+.logo h1 {
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.head .icon {
+  margin-left: 10px;
+}
+
+/*--------head------------*/
+/*--------header------------*/
+header {
+  background-color: #0089BA;
+  margin: 0 30px;
+}
+
+header .nav {
+  display: flex !important;
+}
+
+header li {
+  margin-right: 40px;
+}
+
+header ul {
+  padding: 30px 20px;
+}
+
+header ul li a,
+span {
+  color: #fff;
+  font-weight: 500;
+  transition: 0.5s;
+  position: relative;
+  cursor: pointer;
+}
+
+header ul li a::after,
+header ul li span::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+header ul li a:hover::after,
+header ul li span:hover::after {
+  width: 100%;
+}
+
+.start {
+  background-color: #fff;
+  padding: 30px 70px;
+  color: #0089BA;
+  clip-path: polygon(10% 0%, 100% 0, 100% 100%, 0% 100%);
+}
+
+.toggle {
+  display: none;
+}
+
+/*--------header------------*/
+@media screen and (max-width: 768px) {
+  .start {
+    clip-path: none;
+    background-color: #0089BA;
+  }
+
+  header {
+    margin: 0;
+    background-color: #0089BA;
+    position: relative;
+  }
+
+  header ul.flexSB {
+    display: none;
+  }
+
+  header ul li {
+    margin-bottom: 20px;
+  }
+
+  .toggle {
+    display: block;
+    background: none;
+    color: #fff;
+    font-size: 30px;
+    position: absolute;
+    right: 0;
+    top: -20px;
+  }
+
+  .mobile-nav {
+    position: absolute;
+    top: 7vh;
+    left: 0;
+    width: 100%;
+    background-color: #0089BA;
+  }
+}
