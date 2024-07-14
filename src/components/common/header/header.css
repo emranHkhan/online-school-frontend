@@ -63,6 +63,11 @@ header ul li span:hover::after {
   width: 100%;
 }
 
+.active {
+  font-weight: bolder;
+  border-bottom: 2px solid white;
+}
+
 .start {
   background-color: #fff;
   padding: 30px 70px;

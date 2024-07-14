@@ -27,10 +27,15 @@ const Login = () => {
         e.preventDefault();
         setLoading(true);
         try {
-            const response = await api.post('login/', formData);
-            login(response.data)
-            toast.success('Login successful!');
-            navigate('/')
+            const res = await api.post('login/', formData);
+            if (res.data.error) {
+                toast.error(res.data.error);
+            } else {
+                login(res.data)
+                toast.success('Login successful!');
+                navigate('/')
+            }
+
         } catch (error) {
             toast.error('Login failed. Please check your credentials.');
             console.error('Error:', error);

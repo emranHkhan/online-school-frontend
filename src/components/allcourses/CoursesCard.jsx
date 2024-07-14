@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import "./courses.css"
-import image from "../../../public/images/courses/c1.png"
 import { useNavigate } from "react-router-dom"
+import DynamicSVG from "../svg/DynamicSVG"
 
 const CoursesCard = ({ course }) => {
   const navigate = useNavigate()
@@ -12,39 +12,25 @@ const CoursesCard = ({ course }) => {
 
   return (
     <>
-      <div className='items'>
-        <div className='content flex'>
-          <div className='left'>
-            <div className='img'>
-              <img src={image} alt='' />
-            </div>
+      <div className=''>
+        <div className=''>
+          <div className=''>
+            <DynamicSVG words={course.title} />
           </div>
-          <div className='text'>
-            <h1>{course.title}</h1>
-            {/* <div className='rate'>
-              <i className='fa fa-star'></i>
-              <i className='fa fa-star'></i>
-              <i className='fa fa-star'></i>
-              <i className='fa fa-star'></i>
-              <i className='fa fa-star'></i>
-              <label htmlFor=''>(5.0)</label>
-            </div> */}
-            <div className='details'>
-
-              <div className='box'>
-                <div className='dimg'>
-                  {/* <img src={course.dcover} alt='' /> */}
-                </div>
-                <div className='para'>
-                  <h4>{course.teacher_name}</h4>
+          <div className=''>
+            <h1 className="">{course.title}</h1>
+            <div className=''>
+              <div className=''>
+                <div className=''>
+                  <h4><small>by</small> {course.teacher_name}</h4>
+                  <p>{course.description.slice(0, 200)}...</p>
+                  <strong>Enrolled: {course.students.length}</strong>
                 </div>
               </div>
-              {/* <span>{course.totalTime}</span> */}
-
             </div>
           </div>
         </div>
-        <div className='price'>
+        <div className=''>
           <h3>
             {course.price} &#2547;
           </h3>

@@ -1,0 +1,49 @@
+.dashboard {
+    display: flex;
+    height: 100vh;
+    margin: 5% 0;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #0089BA;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.sidebar a:hover {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.sidebar a.selected {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #fff;
+    overflow-y: auto;
+    width: 80%;
+    /* Scrollable content area */
+}

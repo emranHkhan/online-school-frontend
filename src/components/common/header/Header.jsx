@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import Head from "./Head"
 import "./header.css"
 import api from "../../../utils/axiosInstance"
@@ -11,6 +11,8 @@ const Header = () => {
   const [click, setClick] = useState(false)
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const location = useLocation()
+
 
   const handleLogOut = async () => {
     try {
@@ -24,6 +26,8 @@ const Header = () => {
     }
   }
 
+  const addActiveStyle = (path) => location.pathname.includes(`/${path}`) ? 'active' : ''
+
   return (
     <>
       <Head />
@@ -34,25 +38,25 @@ const Header = () => {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/courses'>All Courses</Link>
+              <Link to='/courses' className={addActiveStyle('courses')}>All Courses</Link>
             </li>
             <li>
-              <Link to='/about'>About</Link>
+              <Link to='/team' className={addActiveStyle('team')}>Team</Link>
             </li>
             <li>
-              <Link to='/team'>Team</Link>
+              <Link to='/about' className={addActiveStyle('about')}>About</Link>
             </li>
             <li>
-              <Link to='/contact'>Contact</Link>
+              <Link to='/contact' className={addActiveStyle('contact')}>Contact</Link>
             </li>
             {
               !user && (
                 <>
                   <li>
-                    <Link to='/login'>Login</Link>
+                    <Link to='/login' className={addActiveStyle('login')}>Login</Link>
                   </li>
                   <li>
-                    <Link to='/register'>Register</Link>
+                    <Link to='/register' className={addActiveStyle('register')}>Register</Link>
                   </li>
                 </>
               )
@@ -60,7 +64,14 @@ const Header = () => {
             {
               user?.user_role === 'student' && (
                 <li>
-                  <Link to={'my-courses'}>My Courses</Link>
+                  <Link to={'my-courses'} className={addActiveStyle('my-courses')}>My Courses</Link>
+                </li>
+              )
+            }
+            {
+              user?.user_role === 'teacher' && (
+                <li>
+                  <Link to={'dashboard'} className={addActiveStyle('dashboard')}>Dashboard</Link>
                 </li>
               )
             }

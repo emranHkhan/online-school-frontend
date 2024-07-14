@@ -1,0 +1,40 @@
+.departments .card-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    /* Optional: add some space between the grid items */
+}
+
+.departments .card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.departments .category-name,
+.course-count {
+    color: gray;
+    text-transform: capitalize;
+}
+
+/* For medium screens (tablets) */
+@media (max-width: 1024px) {
+    .departments .card-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* For small screens (mobile phones) */
+@media (max-width: 768px) {
+    .departments .card-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For extra small screens (very small mobile phones) */
+@media (max-width: 576px) {
+    .departments .card-container {
+        grid-template-columns: 1fr;
+    }
+}

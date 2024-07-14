@@ -1,0 +1,48 @@
+.hidden {
+    display: none;
+}
+
+.card-footer {
+    margin: 20px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.edit,
+.delete i {
+    font-size: 1.5rem;
+}
+
+.edit:hover i {
+    color: blue
+}
+
+.delete:hover i {
+    color: red;
+}
+
+.teacher-course-card {
+    padding: 10px;
+    margin-bottom: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    background-color: #f4f4f4;
+}
+
+.teacher-course-card .card-header {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.teacher-course-card .card-body {
+    margin: 10px 0;
+}
+
+.teacher-course-card .card-header>small {
+    background-color: white;
+    max-width: fit-content;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+}

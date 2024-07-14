@@ -1,6 +1,6 @@
 import useData from "../../../customHooks/useData";
 import Heading from "../../common/heading/Heading"
-import "./style.css"
+import "./testimonial.css"
 import image from '../../../../public/images/testo/t1.webp'
 
 const Testimonal = () => {
@@ -8,24 +8,23 @@ const Testimonal = () => {
 
   return (
     <>
-      <section className='testimonal padding'>
-        <div className='container'>
+      <section className='container'>
+        <div className='testimonial'>
           <Heading subtitle='TESTIMONIAL' title='Our Successful Students' />
 
-          <div className='content grid2'>
+          <div className="card-container">
             {comments.map((comment) => (
-              <div className='items shadow' key={comment.id}>
-                <div className='box flex'>
-                  <div className='img'>
+              <div className='card' key={comment.id}>
+                <div className="card-header">
+                  <div className="image-container">
                     <img src={image} alt='' />
                     <i className='fa fa-quote-left icon'></i>
                   </div>
-                  <div className='name'>
-                    <h2>{comment.student_name}</h2>
-                    <span>Marketing Manager</span>
-                  </div>
+                  <h2 className="student-name">{comment.student_name}</h2>
                 </div>
-                <p>{comment.content}</p>
+                <div className="card-body">
+                  <p>{comment.content}</p>
+                </div>
               </div>
             ))}
           </div>

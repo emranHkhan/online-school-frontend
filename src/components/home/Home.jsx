@@ -1,4 +1,4 @@
-import HAbout from "./HAbout"
+import About from "./about/About"
 import Hero from "./hero/Hero"
 import Testimonal from "./testimonal/Testimonal"
 
@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <Hero />
-      <HAbout />
+      <About />
       <Testimonal />
     </>
   )

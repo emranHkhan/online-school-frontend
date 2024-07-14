@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import api from "../../utils/axiosInstance"
 import Loader from "../loader/Loader"
 import './studentEnrollment.css'
+import { isoToReadableDate } from "../../utils/isoToReadableTime"
 
 const StudentEnrollment = () => {
     const { user } = useAuth()
@@ -46,6 +47,7 @@ const StudentEnrollment = () => {
                         <div className="header__item"><span id="draws" className="filter__link filter__link--number" href="#">Course Category</span></div>
                         <div className="header__item"><span id="wins" className="filter__link filter__link--number" href="#">Teacher Name</span></div>
                         <div className="header__item"><span id="losses" className="filter__link filter__link--number" href="#">Course Price</span></div>
+                        <div className="header__item"><span id="losses" className="filter__link filter__link--number" href="#">Enrolled At</span></div>
                     </div>
                     {
                         enrollments.length > 0 ?
@@ -57,6 +59,7 @@ const StudentEnrollment = () => {
                                             <div className="table-data">{enrollment.course_info.category}</div>
                                             <div className="table-data">{enrollment.course_info.teacher_name}</div>
                                             <div className="table-data">&#2547; {enrollment.course_info.price}</div>
+                                            <div className="table-data">{isoToReadableDate(enrollment.enrolled_at)}</div>
                                         </div>
                                     </div>
                                 )
