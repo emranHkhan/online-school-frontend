@@ -19,7 +19,7 @@ const Header = () => {
       const res = await api.post('logout/')
       toast.success(res.data.detail)
       logout()
-      navigate('/')
+      navigate('/login')
     } catch (error) {
       toast.error(djangoErrors(error))
       console.log(error)

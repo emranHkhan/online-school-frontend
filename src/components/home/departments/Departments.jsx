@@ -15,7 +15,7 @@ const Departments = () => {
             <Link to={`/courses/?department=${dept.id}`} key={dept.id}>
               <div className="card" >
                 <DynamicSVG words={dept.name} />
-                <h1 className="deptegory-name">{dept.name} course</h1>
+                <h1 className="department-name">{dept.name} course</h1>
                 <p className="course-count">Total Course: {dept.course_count}</p>
               </div>
             </Link>

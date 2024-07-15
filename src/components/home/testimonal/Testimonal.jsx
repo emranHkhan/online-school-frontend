@@ -12,7 +12,7 @@ const Testimonal = () => {
           <Heading subtitle='TESTIMONIAL' title='Our Successful Students' />
 
           <div className="card-container">
-            {comments.map((comment) => (
+            {comments.slice(0, 3).map((comment) => (
               <div className='card' key={comment.id}>
                 <div className="card-header">
                   <div className="image-container">

@@ -12,6 +12,10 @@
     width: 100%;
 }
 
+.departments .department-name {
+    text-transform: capitalize;
+}
+
 .departments .category-name,
 .course-count {
     color: gray;
