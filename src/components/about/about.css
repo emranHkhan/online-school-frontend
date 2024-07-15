@@ -85,7 +85,6 @@
   font-weight: 500;
 }
 
-/*----------awrapper------------*/
 @media screen and (max-width: 768px) {
   .aboutHome .container {
     flex-direction: column-reverse;

@@ -44,7 +44,7 @@ const StudentEnrollment = () => {
                 <div className="table">
                     <div className="table-header">
                         <div className="header__item"><span id="name" className="filter__link" href="#">Course Name</span></div>
-                        <div className="header__item"><span id="draws" className="filter__link filter__link--number" href="#">Course Category</span></div>
+                        <div className="header__item"><span id="draws" className="filter__link filter__link--number" href="#">Department</span></div>
                         <div className="header__item"><span id="wins" className="filter__link filter__link--number" href="#">Teacher Name</span></div>
                         <div className="header__item"><span id="losses" className="filter__link filter__link--number" href="#">Course Price</span></div>
                         <div className="header__item"><span id="losses" className="filter__link filter__link--number" href="#">Enrolled At</span></div>
@@ -56,7 +56,7 @@ const StudentEnrollment = () => {
                                     <div className="table-content" key={enrollment.id}>
                                         <div className={`table-row ${index % 2 !== 0 && 'odd'}`}>
                                             <div className="table-data">{enrollment.course_info.name}</div>
-                                            <div className="table-data">{enrollment.course_info.category}</div>
+                                            <div className="table-data">{enrollment.course_info.department}</div>
                                             <div className="table-data">{enrollment.course_info.teacher_name}</div>
                                             <div className="table-data">&#2547; {enrollment.course_info.price}</div>
                                             <div className="table-data">{isoToReadableDate(enrollment.enrolled_at)}</div>

@@ -6,7 +6,7 @@ const DataContext = createContext();
 // eslint-disable-next-line react/prop-types
 export const DataProvider = ({ children }) => {
     const [courses, setCourses] = useState([]);
-    const [categories, setCategories] = useState([]);
+    const [departments, setDepartments] = useState([]);
     const [comments, setcomments] = useState([]);
     const [teachers, setTeachers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -16,15 +16,15 @@ export const DataProvider = ({ children }) => {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const [coursesResponse, categoriesResponse, commentsResponse, teachersResponse] = await Promise.all([
+                const [coursesResponse, departmentsResponse, commentsResponse, teachersResponse] = await Promise.all([
                     api.get('courses/'),
-                    api.get('categories/'),
+                    api.get('departments/'),
                     api.get('comments/'),
                     api.get('teachers/')
                 ]);
 
                 setCourses(coursesResponse.data);
-                setCategories(categoriesResponse.data);
+                setDepartments(departmentsResponse.data);
                 setcomments(commentsResponse.data);
                 setTeachers(teachersResponse.data);
             } catch (error) {
@@ -37,7 +37,7 @@ export const DataProvider = ({ children }) => {
         fetchData();
     }, []);
 
-    const value = { courses, categories, comments, teachers, loading, error, setCourses };
+    const value = { courses, departments, comments, teachers, loading, error, setCourses };
 
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };

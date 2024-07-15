@@ -8,9 +8,9 @@ import { useLocation, useNavigate } from "react-router-dom";
 const CourseEdit = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
+    const [department, setDepartment] = useState('');
     const [price, setPrice] = useState('');
-    const { categories } = useData();
+    const { departments } = useData();
     const { user } = useAuth();
     const location = useLocation();
     const { course } = location.state;
@@ -20,14 +20,14 @@ const CourseEdit = () => {
         if (course) {
             setTitle(course.title);
             setDescription(course.description);
-            setCategory(course.category);
+            setDepartment(course.department);
             setPrice(course.price);
         }
     }, [course]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const courseData = { title, description, category, price, teacher: user.user_id };
+        const courseData = { title, description, department, price, teacher: user.user_id };
 
         try {
             if (course) {
@@ -68,14 +68,14 @@ const CourseEdit = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Category:</label>
+                    <label>Department:</label>
                     <select
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
+                        value={department}
+                        onChange={(e) => setDepartment(e.target.value)}
                         required
                     >
-                        <option value="" disabled>Select a category</option>
-                        {categories.map((cat) => (
+                        <option value="" disabled>Select a department</option>
+                        {departments.map((cat) => (
                             <option key={cat.id} value={cat.id}>
                                 {cat.name}
                             </option>

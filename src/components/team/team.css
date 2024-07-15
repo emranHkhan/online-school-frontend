@@ -30,7 +30,7 @@
 }
 
 .team .details {
-  padding: 30px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -38,6 +38,7 @@
   font-weight: 500;
   font-size: 20px;
   transition: 0.5s;
+  text-transform: capitalize;
 }
 
 .team .details p {

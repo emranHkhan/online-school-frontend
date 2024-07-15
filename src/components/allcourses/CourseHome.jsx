@@ -6,20 +6,21 @@ import './courses.css'
 import DynamicSVG from "../svg/DynamicSVG";
 
 const CourseHome = () => {
-  const { courses, teachers, categories, setCourses } = useData();
+  const { courses, teachers, departments, setCourses } = useData();
   const location = useLocation();
   const navigate = useNavigate()
   const [selectedFilter, setSelectedFilter] = useState({ query: 'all', id: null });
 
-  const categoryId = location.search.split('=')[1];
+  const departmentId = location.search.includes('department') ? location.search.split('=')[1] : null;
+  const teacherId = location.search.includes('teacher') ? location.search.split('=')[1] : null;
 
   const getCourseByFilter = useCallback(async (query, id = null) => {
     try {
       let res;
       if (query === 'teacher') {
         res = await api.get(`courses/?teacher=${id}`);
-      } else if (query === 'category') {
-        res = await api.get(`courses/?category=${id}`);
+      } else if (query === 'department') {
+        res = await api.get(`courses/?department=${id}`);
       } else {
         res = await api.get('courses/');
       }
@@ -31,21 +32,22 @@ const CourseHome = () => {
   }, [setCourses]);
 
   useEffect(() => {
-    const getCourseByCategory = async () => {
+    const getCourseByDepartment = async () => {
       try {
-        if (categoryId) {
-          const res = await api.get(`courses/?category=${categoryId}`);
-          setCourses(res.data);
-          setSelectedFilter({ query: 'category', id: categoryId });
-        } else {
+        if (departmentId) {
+          await getCourseByFilter('department', departmentId)
+        } else if (teacherId) {
+          await getCourseByFilter('teacher', teacherId)
+        }
+        else {
           await getCourseByFilter('all');
         }
       } catch (error) {
         console.log(error);
       }
     };
-    getCourseByCategory();
-  }, [categoryId, getCourseByFilter, setCourses]);
+    getCourseByDepartment();
+  }, [departmentId, teacherId, getCourseByFilter]);
 
   const handleClick = (course) => {
     navigate(`/course/${course.id}`, { state: { course } });
@@ -84,14 +86,14 @@ const CourseHome = () => {
             <div>
               <h3>Department</h3>
               <hr />
-              {categories.map((category) => (
+              {departments.map((department) => (
                 <div
-                  onClick={() => getCourseByFilter('category', category.id)}
-                  key={category.id}
-                  className={`option ${selectedFilter.query === 'category' && selectedFilter.id === category.id ? 'selected' : ''}`}
+                  onClick={() => getCourseByFilter('department', department.id)}
+                  key={department.id}
+                  className={`option ${selectedFilter.query === 'department' && selectedFilter.id === department.id ? 'selected' : ''}`}
                 >
                   <div className="fa-solid fa-angle-right"></div>
-                  <div>{category.name}</div>
+                  <div>{department.name}</div>
                 </div>
               ))}
             </div>

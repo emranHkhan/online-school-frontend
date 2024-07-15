@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import './dashboard.css';
 import MyCourses from '../my-courses/MyCourses';
 import CreateCourse from '../create-course/CreateCourse';
 import CourseEdit from '../course-edit/CourseEdit';
 import api from '../../utils/axiosInstance';
+import './dashboard.css';
 
 const Dashboard = () => {
     const [selectedLink, setSelectedLink] = useState('');
@@ -15,16 +15,13 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchAllCourses = async () => {
             try {
-                const res = await api.get('courses/')
-                setCourses(res.data)
-                console.log(res.data)
-
+                const res = await api.get('courses/');
+                setCourses(res.data);
             } catch (error) {
-                console.error(error)
+                console.error(error);
             }
-        }
-
-        fetchAllCourses()
+        };
+        fetchAllCourses();
 
         if (location.pathname === '/dashboard') {
             setSelectedLink('my-courses');
@@ -34,10 +31,9 @@ const Dashboard = () => {
         } else if (location.pathname.includes('course/create')) {
             setSelectedLink('course/create');
         } else {
-            setSelectedLink('')
+            setSelectedLink('');
         }
     }, [location, navigate]);
-
 
     return (
         <div className="container">
@@ -76,5 +72,5 @@ const Dashboard = () => {
     );
 };
 
-
 export default Dashboard;
+

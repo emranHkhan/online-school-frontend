@@ -10,6 +10,8 @@
 .course-form {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    /* Ensure the form takes full width */
 }
 
 .form-group {
@@ -49,4 +51,18 @@ textarea {
 
 .submit-button:hover {
     background-color: #0056b3;
+}
+
+@media (max-width: 767px) {
+    .form-wrapper {
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .form-wrapper {
+        width: 80%;
+        padding: 1.5rem;
+    }
 }

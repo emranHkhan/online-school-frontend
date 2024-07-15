@@ -5,18 +5,18 @@ import DynamicSVG from "../../svg/DynamicSVG";
 import './department.css'
 
 const Departments = () => {
-  const { categories } = useData();
+  const { departments } = useData();
   return (
     <>
       <section className="departments">
         <Heading subtitle='COURSES' title='browse by department' />
         <div className='card-container'>
-          {categories.map((cat) => (
-            <Link to={`/courses/?category=${cat.id}`} key={cat.id}>
+          {departments.map((dept) => (
+            <Link to={`/courses/?department=${dept.id}`} key={dept.id}>
               <div className="card" >
-                <DynamicSVG words={cat.name} />
-                <h1 className="category-name">{cat.name} course</h1>
-                <p className="course-count">Total Course: {cat.course_count}</p>
+                <DynamicSVG words={dept.name} />
+                <h1 className="deptegory-name">{dept.name} course</h1>
+                <p className="course-count">Total Course: {dept.course_count}</p>
               </div>
             </Link>
           ))}

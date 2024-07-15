@@ -8,18 +8,18 @@
   width: 20%;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  color: #0089BA;
 }
 
 .course-options .content {
   flex-grow: 1;
   padding: 30px;
   background-color: #fff;
-  overflow-y: auto;
   width: 80%;
 }
 
 .course-options .sidebar div.selected {
-  font-weight: bold;
+  font-weight: bolder;
   background-color: #ddd;
 }
 
@@ -41,4 +41,43 @@
   display: flex;
   gap: 5px;
   align-items: center;
+}
+
+@media (max-width: 767px) {
+  .course-options {
+    flex-direction: column;
+    margin: 2% 0;
+    height: auto;
+  }
+
+  .course-options .sidebar {
+    width: 100%;
+    padding: 10px;
+    box-shadow: none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .course-options .content {
+    width: 100%;
+    padding: 10px;
+    overflow: visible;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .course-options {
+    margin: 3% 0;
+    height: auto;
+  }
+
+  .course-options .sidebar {
+    width: 30%;
+    padding: 15px;
+  }
+
+  .course-options .content {
+    width: 70%;
+    padding: 20px;
+    overflow: visible;
+  }
 }

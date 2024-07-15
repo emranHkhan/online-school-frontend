@@ -8,7 +8,6 @@ import Loader from '../loader/Loader';
 
 const Register = () => {
     const [loading, setLoading] = useState(false);
-    const [isStudent, setIsStudent] = useState(false);
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -24,9 +23,7 @@ const Register = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        if (name === 'role') {
-            setIsStudent(value === 'student');
-        }
+
         setFormData({
             ...formData,
             [name]: value,
@@ -97,16 +94,11 @@ const Register = () => {
                         <input type="email" placeholder="Enter your email" name="email" onChange={handleChange} required />
                     </div>
                     <div className="input-box">
-                        <input type="password" placeholder="Create password" name="password" onChange={handleChange} required />
+                        <input type="text" placeholder="Create password" name="password" onChange={handleChange} required />
                     </div>
                     <div className="input-box">
-                        <input type="password" placeholder="Confirm password" name="confirm_password" onChange={handleChange} required />
+                        <input type="text" placeholder="Confirm password" name="confirm_password" onChange={handleChange} required />
                     </div>
-                    {!isStudent && (
-                        <div className="input-box">
-                            <input type="text" placeholder="Specialization" name="specialization" onChange={handleChange} required />
-                        </div>
-                    )}
                     <div>
                         <input type="file" onChange={handleFileChange} name="image" />
                     </div>
@@ -127,3 +119,4 @@ const Register = () => {
 };
 
 export default Register;
+

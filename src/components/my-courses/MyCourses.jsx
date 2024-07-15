@@ -30,7 +30,7 @@ const MyCourses = ({ courses }) => {
                     <div className='teacher-course-card'>
                         <div className='card-header'>
                             <h1>{course.title}</h1>
-                            <small>{course.category_name}</small>
+                            <small>{course.department_name}</small>
                         </div>
                         <div className='card-body'>
                             <p>{course.description}</p>

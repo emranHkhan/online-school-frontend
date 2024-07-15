@@ -54,7 +54,6 @@ const Course = () => {
             setIsCommentSubmitted(prev => !prev)
         } catch (error) {
             toast.error(djangoErrors(error))
-            console.error(error)
         } finally {
             setComment('')
         }
@@ -65,8 +64,6 @@ const Course = () => {
             <p>No course data available.</p>
         </div>;
     }
-
-    console.log(course)
 
     return (
         <section className="container">

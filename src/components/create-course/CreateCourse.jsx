@@ -9,21 +9,20 @@ import { useNavigate } from 'react-router-dom';
 const CreateCourse = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
+    const [department, setDepartment] = useState('');
     const [price, setPrice] = useState('');
-    const { categories } = useData();
+    const { departments } = useData();
     const { user } = useAuth()
     const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const courseData = { title, description, category, price, teacher: user.user_id };
+        const courseData = { title, description, department, price, teacher: user.user_id };
         try {
-            const res = await api.post('courses/create/', courseData);
-            console.log('Course created successfully:', res.data);
+            await api.post('courses/create/', courseData);
             setTitle('');
             setDescription('');
-            setCategory('');
+            setDepartment('');
             setPrice('');
             toast.success('Course created successfully.')
             navigate('/dashboard/my-courses');
@@ -56,15 +55,15 @@ const CreateCourse = () => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Category:</label>
+                    <label>Department:</label>
                     <select
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        name='category'
+                        value={department}
+                        onChange={(e) => setDepartment(e.target.value)}
+                        name='department'
                         required
                     >
-                        <option value="" disabled>Select a category</option>
-                        {categories.map((cat) => (
+                        <option value="" disabled>Select a department</option>
+                        {departments.map((cat) => (
                             <option key={cat.id} value={cat.id}>
                                 {cat.name}
                             </option>

@@ -103,7 +103,7 @@ p {
 }
 
 .back {
-  background-image: url("../public/images/back.webp");
+  background-image: url("./assets/images/back.webp");
   background-size: cover;
   background-attachment: fixed;
   position: absolute;
