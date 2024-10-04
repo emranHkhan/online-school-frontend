@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import useAuth from "../../customHooks/useAuth"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import api from "../../utils/axiosInstance"
 import Loader from "../loader/Loader"
 import './studentEnrollment.css'
@@ -55,7 +55,7 @@ const StudentEnrollment = () => {
                                 return (
                                     <div className="table-content" key={enrollment.id}>
                                         <div className={`table-row ${index % 2 !== 0 && 'odd'}`}>
-                                            <div className="table-data">{enrollment.course_info.name}</div>
+                                            <Link to={`/course/${enrollment.course}`} className="table-data">{enrollment.course_info.name}</Link>
                                             <div className="table-data">{enrollment.course_info.department}</div>
                                             <div className="table-data">{enrollment.course_info.teacher_name}</div>
                                             <div className="table-data">&#2547; {enrollment.course_info.price}</div>
